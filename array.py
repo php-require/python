@@ -79,3 +79,20 @@ def test_arrat_search(): # функция линейного поиска
 		print("false")			
 
 test_arrat_search() # start test		
+
+
+def invert_array(A:list,N:int):
+	"""реверс массива
+	в рамка индекса от 0 до N-1
+	"""
+	for k in range(N//2):
+		A[k], A[N-1-k] = A[N-1-k], A[k] # меняем местами A[k], A[N-1-k]
+ 
+def test_invert_array():
+	A6=[1,2,3,4,5,9,10]
+	print(A6)
+	invert_array(A6,5) # до куда переворачиваем (индекс)
+	print(A6)
+pass
+
+test_invert_array()	
