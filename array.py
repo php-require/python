@@ -96,3 +96,24 @@ def test_invert_array():
 pass
 
 test_invert_array()	
+
+# Цикличный сдвиг в лево
+A7=[1,2,3,4,5,6,7]
+N=2
+tmp=A7[0]
+
+for k in range(N-1):
+	A7[k]=A7[k+1]
+A7[N-1]=tmp
+print(A7)
+
+# Решето Эратосфена	
+A[True]*N # N = число индексов в массиве
+A[0]=A[1]=False
+for k in range(2,N):
+	if A[k]:
+		for m in range(2*k,N,k):
+			A[m]=False
+#print(A) покажет все
+for k in range(N):
+	print(k,'-',"prostoe"if A[k]else"sostavnoe") # условие в принте
