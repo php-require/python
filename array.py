@@ -117,3 +117,4 @@ for k in range(2,N):
 #print(A) покажет все
 for k in range(N):
 	print(k,'-',"prostoe"if A[k]else"sostavnoe") # условие в принте
+	
