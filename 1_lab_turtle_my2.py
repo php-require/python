@@ -137,3 +137,17 @@ turtle.fd(150)
 turtle.left(140)
 turtle.fd(150)       
 turtle.mainloop()       
+
+#рекурсия  смотреть файл matryoshka.py
+def matryoshka(n):
+	if n == 1:
+		turtle.mainloop() 
+	else:
+		turtle.left(140)
+		turtle.fd(150)
+		matryoshka(n-1)
+
+		turtle.right(140)
+		turtle.fd(150)
+
+matryoshka(15)	
