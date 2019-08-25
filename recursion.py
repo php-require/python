@@ -95,7 +95,7 @@ def generate_permutations(N:int,M:int=-1, prefix=None):
     """ Генерирует всех перестановок N числа в М позиции 
         с префиксом
     """
-    M = N if M==-1 else M
+    M = N if M==-1 else M # по умолчанию n числа в n позициях
     prefix = prefix or []
     if M == 0:
         print(*prefix, end=", ", sep="")
