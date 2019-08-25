@@ -1,7 +1,7 @@
 import graphics as gr
 window = gr.GraphWin("Russin game", 600, 600)
 alpha = 0.1
-
+# рекурсия алгебра
 def fractal_rectangle(A, B, C, D, deep=10):
     if deep < 1:
         return
@@ -35,3 +35,31 @@ def pow(a:float,n:int):
     else:# (призрак n равно четное)
         return pow(a**2, n//2)
 print(pow(-2,5)) # - 2 в степени 5
+
+
+# строковый пример генерации 
+def gen_bin(Z, prefix=""):
+    if Z == 0:
+        print(prefix)
+        return
+    gen_bin(Z-1, prefix+"0")
+    gen_bin(Z-1, prefix+"1")     
+
+gen_bin(6)
+
+# выводим работ рекурсии 
+def generate_number(N:int,M:int, prefix=None):
+    """ Генерирует все числа (с лидирующими незначащими нулями)
+        в N-ричной системы счисления (N <= 10) длины М
+    """
+    prefix = prefix or []
+    if M == 0:
+        print(prefix)
+        return
+    for digit in range(N):
+        prefix.append(digit)    
+        generate_number(N, M-1, prefix)
+        prefix.pop()
+
+generate_number(4,3)        
+
