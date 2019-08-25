@@ -45,7 +45,33 @@ def gen_bin(Z, prefix=""):
     gen_bin(Z-1, prefix+"0")
     gen_bin(Z-1, prefix+"1")     
 
-gen_bin(6)
+#gen_bin(3)
+
+# строковый пример генерации циклом
+def gen_bin1(Z, prefix=""):
+    if Z == 0:
+        print(prefix)
+        return
+    for digit in "0", "1":
+        gen_bin1(Z-1, prefix+digit)     
+
+#gen_bin1(5)
+
+# функуия финд
+def find(number, A):
+    """ ищет number в А и возвращает True 
+        Если такой есть
+    """
+    flag = False
+    for x in A:
+        if number == x:
+            flag = True
+            break
+        return flag    
+    if number == A:
+        print(number, " = ", A)
+    return    
+
 
 # выводим работ рекурсии 
 def generate_number(N:int,M:int, prefix=None):
@@ -61,5 +87,24 @@ def generate_number(N:int,M:int, prefix=None):
         generate_number(N, M-1, prefix)
         prefix.pop()
 
-generate_number(4,3)        
+generate_number(2,4)        
 
+
+
+def generate_permutations(N:int,M:int=-1, prefix=None):
+    """ Генерирует всех перестановок N числа в М позиции 
+        с префиксом
+    """
+    M = N if M==-1 else M
+    prefix = prefix or []
+    if M == 0:
+        print(*prefix, end=", ", sep="")
+        return
+    for number in range(1, N+1):
+        if find(number, prefix):
+            continue
+        prefix.append(number)    
+        generate_permutations(N, M-1, prefix)
+        prefix.pop()
+
+generate_permutations(4)    
