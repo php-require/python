@@ -47,6 +47,7 @@ def gen_bin(Z, prefix=""):
 
 #gen_bin(3)
 
+
 # строковый пример генерации циклом
 def gen_bin1(Z, prefix=""):
     if Z == 0:
@@ -70,6 +71,7 @@ def find(number, A):
         return flag    
     if number == A:
         print(number, " = ", A)
+
     return    
 
 
@@ -87,7 +89,7 @@ def generate_number(N:int,M:int, prefix=None):
         generate_number(N, M-1, prefix)
         prefix.pop()
 
-generate_number(2,4)        
+generate_number(2,3)        
 
 
 
@@ -107,4 +109,27 @@ def generate_permutations(N:int,M:int=-1, prefix=None):
         generate_permutations(N, M-1, prefix)
         prefix.pop()
 
-generate_permutations(4)    
+generate_permutations(3)
+
+ 
+#сортировка том хоара
+def hoar_sort(A):
+    if len(A)<=1:
+        return
+    barrier = A[0]; L=[];M=[];R=[]
+    for x in A:
+        if x < barrier:
+            L.append(x)
+        elif x==barrier:
+            M.append(x)
+        else:
+            R.append(x)
+        hoar_sort(L)
+        hoar_sort(R)    
+    k=0
+    for x in L+M+R:
+        A[k]=x; k+=1            
+                
+B=[1,3,4,2,6]
+hoar_sort(B)
+print(*B)
